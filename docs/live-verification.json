@@ -1,0 +1,1533 @@
+{
+  "checkedAt": "2026-10-23T20:18:10.378Z",
+  "mode": "authenticated-live",
+  "result": "pass",
+  "checks": [
+    {
+      "name": "manifest-schema-and-catalog-only",
+      "result": "pass",
+      "catalogs": 27
+    },
+    {
+      "name": "JioHotstar Popular Movies (TMDB)",
+      "result": "pass",
+      "items": 40,
+      "availability": "all returned titles independently checked in IN"
+    },
+    {
+      "name": "JioHotstar New Movies",
+      "result": "pass",
+      "items": 22,
+      "availability": "all returned titles independently checked in IN"
+    },
+    {
+      "name": "JioHotstar Trending Movies (TMDB)",
+      "result": "pass",
+      "items": 3,
+      "availability": "all returned titles independently checked in IN"
+    },
+    {
+      "name": "SonyLIV Popular Movies (TMDB)",
+      "result": "pass",
+      "items": 40,
+      "availability": "all returned titles independently checked in IN"
+    },
+    {
+      "name": "SonyLIV Trending Movies (TMDB)",
+      "result": "pass",
+      "items": 1,
+      "availability": "all returned titles independently checked in IN"
+    },
+    {
+      "name": "ZEE5 Popular Movies (TMDB)",
+      "result": "pass",
+      "items": 1,
+      "availability": "all returned titles independently checked in IN"
+    },
+    {
+      "name": "Prime Video India Popular Movies (TMDB)",
+      "result": "pass",
+      "items": 40,
+      "availability": "all returned titles independently checked in IN"
+    },
+    {
+      "name": "Prime Video India New Movies",
+      "result": "pass",
+      "items": 30,
+      "availability": "all returned titles independently checked in IN"
+    },
+    {
+      "name": "Prime Video India Trending Movies (TMDB)",
+      "result": "pass",
+      "items": 3,
+      "availability": "all returned titles independently checked in IN"
+    },
+    {
+      "name": "Sun NXT Popular Movies (TMDB)",
+      "result": "pass",
+      "items": 40,
+      "availability": "all returned titles independently checked in IN"
+    },
+    {
+      "name": "Sun NXT New Movies",
+      "result": "pass",
+      "items": 2,
+      "availability": "all returned titles independently checked in IN"
+    },
+    {
+      "name": "Hoichoi Popular Movies (TMDB)",
+      "result": "pass",
+      "items": 40,
+      "availability": "all returned titles independently checked in IN"
+    },
+    {
+      "name": "Lionsgate Play Popular Movies (TMDB)",
+      "result": "pass",
+      "items": 40,
+      "availability": "all returned titles independently checked in IN"
+    },
+    {
+      "name": "JioHotstar Popular Series (TMDB)",
+      "result": "pass",
+      "items": 40,
+      "availability": "all returned titles independently checked in IN"
+    },
+    {
+      "name": "JioHotstar New Series",
+      "result": "pass",
+      "items": 40,
+      "availability": "all returned titles independently checked in IN"
+    },
+    {
+      "name": "JioHotstar Trending Series (TMDB)",
+      "result": "pass",
+      "items": 18,
+      "availability": "all returned titles independently checked in IN"
+    },
+    {
+      "name": "SonyLIV Popular Series (TMDB)",
+      "result": "pass",
+      "items": 40,
+      "availability": "all returned titles independently checked in IN"
+    },
+    {
+      "name": "SonyLIV New Series",
+      "result": "pass",
+      "items": 1,
+      "availability": "all returned titles independently checked in IN"
+    },
+    {
+      "name": "SonyLIV Trending Series (TMDB)",
+      "result": "pass",
+      "items": 6,
+      "availability": "all returned titles independently checked in IN"
+    },
+    {
+      "name": "ZEE5 Popular Series (TMDB)",
+      "result": "pass",
+      "items": 40,
+      "availability": "all returned titles independently checked in IN"
+    },
+    {
+      "name": "Prime Video India Popular Series (TMDB)",
+      "result": "pass",
+      "items": 40,
+      "availability": "all returned titles independently checked in IN"
+    },
+    {
+      "name": "Prime Video India New Series",
+      "result": "pass",
+      "items": 25,
+      "availability": "all returned titles independently checked in IN"
+    },
+    {
+      "name": "Prime Video India Trending Series (TMDB)",
+      "result": "pass",
+      "items": 8,
+      "availability": "all returned titles independently checked in IN"
+    },
+    {
+      "name": "Sun NXT Popular Series (TMDB)",
+      "result": "pass",
+      "items": 28,
+      "availability": "all returned titles independently checked in IN"
+    },
+    {
+      "name": "Hoichoi Popular Series (TMDB)",
+      "result": "pass",
+      "items": 40,
+      "availability": "all returned titles independently checked in IN"
+    },
+    {
+      "name": "Hoichoi New Series",
+      "result": "pass",
+      "items": 1,
+      "availability": "all returned titles independently checked in IN"
+    },
+    {
+      "name": "Lionsgate Play Popular Series (TMDB)",
+      "result": "pass",
+      "items": 40,
+      "availability": "all returned titles independently checked in IN"
+    },
+    {
+      "name": "poster-urls",
+      "result": "pass",
+      "coverage": "one poster per row; full check available with --all-posters"
+    }
+  ],
+  "stremioClientAcceptance": "not-tested",
+  "publicHttps": "not-tested",
+  "providers": [
+    {
+      "slug": "jiohotstar",
+      "name": "JioHotstar",
+      "types": [
+        {
+          "type": "movie",
+          "status": "verified",
+          "providerId": 2336,
+          "sourceName": "JioHotstar",
+          "checkedAt": "2026-10-23T20:18:10.379Z",
+          "catalogs": [
+            {
+              "kind": "popular",
+              "status": "verified",
+              "count": 40
+            },
+            {
+              "kind": "new",
+              "status": "verified",
+              "count": 22
+            },
+            {
+              "kind": "trending",
+              "status": "verified",
+              "count": 3
+            }
+          ]
+        },
+        {
+          "type": "tv",
+          "status": "verified",
+          "providerId": 2336,
+          "sourceName": "JioHotstar",
+          "checkedAt": "2026-10-23T20:18:10.379Z",
+          "catalogs": [
+            {
+              "kind": "popular",
+              "status": "verified",
+              "count": 40
+            },
+            {
+              "kind": "new",
+              "status": "verified",
+              "count": 40
+            },
+            {
+              "kind": "trending",
+              "status": "verified",
+              "count": 18
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "sonyliv",
+      "name": "SonyLIV",
+      "types": [
+        {
+          "type": "movie",
+          "status": "partial",
+          "providerId": 237,
+          "sourceName": "Sony Liv",
+          "checkedAt": "2026-10-23T20:18:10.379Z",
+          "catalogs": [
+            {
+              "kind": "popular",
+              "status": "verified",
+              "count": 40
+            },
+            {
+              "kind": "new",
+              "status": "empty",
+              "count": 0
+            },
+            {
+              "kind": "trending",
+              "status": "verified",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "type": "tv",
+          "status": "verified",
+          "providerId": 237,
+          "sourceName": "Sony Liv",
+          "checkedAt": "2026-10-23T20:18:10.379Z",
+          "catalogs": [
+            {
+              "kind": "popular",
+              "status": "verified",
+              "count": 40
+            },
+            {
+              "kind": "new",
+              "status": "verified",
+              "count": 1
+            },
+            {
+              "kind": "trending",
+              "status": "verified",
+              "count": 6
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "zee5",
+      "name": "ZEE5",
+      "types": [
+        {
+          "type": "movie",
+          "status": "partial",
+          "providerId": 232,
+          "sourceName": "Zee5",
+          "checkedAt": "2026-10-23T20:18:10.379Z",
+          "catalogs": [
+            {
+              "kind": "popular",
+              "status": "verified",
+              "count": 1
+            },
+            {
+              "kind": "new",
+              "status": "empty",
+              "count": 0
+            },
+            {
+              "kind": "trending",
+              "status": "empty",
+              "count": 0
+            }
+          ]
+        },
+        {
+          "type": "tv",
+          "status": "partial",
+          "providerId": 232,
+          "sourceName": "Zee5",
+          "checkedAt": "2026-10-23T20:18:10.379Z",
+          "catalogs": [
+            {
+              "kind": "popular",
+              "status": "verified",
+              "count": 40
+            },
+            {
+              "kind": "new",
+              "status": "empty",
+              "count": 0
+            },
+            {
+              "kind": "trending",
+              "status": "empty",
+              "count": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "primevideo",
+      "name": "Prime Video India",
+      "types": [
+        {
+          "type": "movie",
+          "status": "verified",
+          "providerId": 119,
+          "sourceName": "Amazon Prime Video",
+          "checkedAt": "2026-10-23T20:18:10.379Z",
+          "catalogs": [
+            {
+              "kind": "popular",
+              "status": "verified",
+              "count": 40
+            },
+            {
+              "kind": "new",
+              "status": "verified",
+              "count": 30
+            },
+            {
+              "kind": "trending",
+              "status": "verified",
+              "count": 3
+            }
+          ]
+        },
+        {
+          "type": "tv",
+          "status": "verified",
+          "providerId": 119,
+          "sourceName": "Amazon Prime Video",
+          "checkedAt": "2026-10-23T20:18:10.379Z",
+          "catalogs": [
+            {
+              "kind": "popular",
+              "status": "verified",
+              "count": 40
+            },
+            {
+              "kind": "new",
+              "status": "verified",
+              "count": 25
+            },
+            {
+              "kind": "trending",
+              "status": "verified",
+              "count": 8
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "sunnxt",
+      "name": "Sun NXT",
+      "types": [
+        {
+          "type": "movie",
+          "status": "partial",
+          "providerId": 309,
+          "sourceName": "Sun Nxt",
+          "checkedAt": "2026-10-23T20:18:10.379Z",
+          "catalogs": [
+            {
+              "kind": "popular",
+              "status": "verified",
+              "count": 40
+            },
+            {
+              "kind": "new",
+              "status": "verified",
+              "count": 2
+            },
+            {
+              "kind": "trending",
+              "status": "empty",
+              "count": 0
+            }
+          ]
+        },
+        {
+          "type": "tv",
+          "status": "partial",
+          "providerId": 309,
+          "sourceName": "Sun Nxt",
+          "checkedAt": "2026-10-23T20:18:10.379Z",
+          "catalogs": [
+            {
+              "kind": "popular",
+              "status": "verified",
+              "count": 28
+            },
+            {
+              "kind": "new",
+              "status": "empty",
+              "count": 0
+            },
+            {
+              "kind": "trending",
+              "status": "empty",
+              "count": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "hoichoi",
+      "name": "Hoichoi",
+      "types": [
+        {
+          "type": "movie",
+          "status": "partial",
+          "providerId": 315,
+          "sourceName": "Hoichoi",
+          "checkedAt": "2026-10-23T20:18:10.379Z",
+          "catalogs": [
+            {
+              "kind": "popular",
+              "status": "verified",
+              "count": 40
+            },
+            {
+              "kind": "new",
+              "status": "empty",
+              "count": 0
+            },
+            {
+              "kind": "trending",
+              "status": "empty",
+              "count": 0
+            }
+          ]
+        },
+        {
+          "type": "tv",
+          "status": "partial",
+          "providerId": 315,
+          "sourceName": "Hoichoi",
+          "checkedAt": "2026-10-23T20:18:10.379Z",
+          "catalogs": [
+            {
+              "kind": "popular",
+              "status": "verified",
+              "count": 40
+            },
+            {
+              "kind": "new",
+              "status": "verified",
+              "count": 1
+            },
+            {
+              "kind": "trending",
+              "status": "empty",
+              "count": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "erosnow",
+      "name": "Eros Now",
+      "types": [
+        {
+          "type": "movie",
+          "status": "not-listed",
+          "reason": "No exact direct-provider name in the India registry"
+        },
+        {
+          "type": "tv",
+          "status": "not-listed",
+          "reason": "No exact direct-provider name in the India registry"
+        }
+      ]
+    },
+    {
+      "slug": "airtelxstream",
+      "name": "Airtel Xstream",
+      "types": [
+        {
+          "type": "movie",
+          "status": "not-listed",
+          "reason": "No exact direct-provider name in the India registry"
+        },
+        {
+          "type": "tv",
+          "status": "not-listed",
+          "reason": "No exact direct-provider name in the India registry"
+        }
+      ]
+    },
+    {
+      "slug": "lionsgateplay",
+      "name": "Lionsgate Play",
+      "types": [
+        {
+          "type": "movie",
+          "status": "partial",
+          "providerId": 561,
+          "sourceName": "Lionsgate Play",
+          "checkedAt": "2026-10-23T20:18:10.379Z",
+          "catalogs": [
+            {
+              "kind": "popular",
+              "status": "verified",
+              "count": 40
+            },
+            {
+              "kind": "new",
+              "status": "empty",
+              "count": 0
+            },
+            {
+              "kind": "trending",
+              "status": "empty",
+              "count": 0
+            }
+          ]
+        },
+        {
+          "type": "tv",
+          "status": "partial",
+          "providerId": 561,
+          "sourceName": "Lionsgate Play",
+          "checkedAt": "2026-10-23T20:18:10.379Z",
+          "catalogs": [
+            {
+              "kind": "popular",
+              "status": "verified",
+              "count": 40
+            },
+            {
+              "kind": "new",
+              "status": "empty",
+              "count": 0
+            },
+            {
+              "kind": "trending",
+              "status": "empty",
+              "count": 0
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "itemsChecked": 669,
+  "limitations": [
+    "Actual Stremio installation and device display require separate user/client verification.",
+    "URL persistence across a real redeploy must be verified separately."
+  ],
+  "rows": [
+    {
+      "id": "in.jh.pop",
+      "type": "movie",
+      "name": "JioHotstar Popular Movies (TMDB)",
+      "count": 40,
+      "verifiedAt": "2026-10-23T20:18:10.379Z",
+      "method": "TMDB popularity descending among titles with verified subscription/free/ad-supported availability on this provider in India. Not an official platform ranking.",
+      "providerId": 2336,
+      "candidateCount": 40,
+      "scanPages": 2,
+      "sample": [
+        {
+          "id": "tt29355505",
+          "tmdbId": 1084244,
+          "name": "Toy Story 5",
+          "providerId": 2336,
+          "watchRegion": "IN",
+          "checkedAt": "2026-10-23T20:18:10.379Z"
+        },
+        {
+          "id": "tt0107688",
+          "tmdbId": 9479,
+          "name": "The Nightmare Before Christmas",
+          "providerId": 2336,
+          "watchRegion": "IN",
+          "checkedAt": "2026-10-23T20:18:10.379Z"
+        },
+        {
+          "id": "tt27419466",
+          "tmdbId": 1108427,
+          "name": "Moana",
+          "providerId": 2336,
+          "watchRegion": "IN",
+          "checkedAt": "2026-10-23T20:18:10.379Z"
+        }
+      ]
+    },
+    {
+      "id": "in.jh.new",
+      "type": "movie",
+      "name": "JioHotstar New Movies",
+      "count": 22,
+      "verifiedAt": "2026-10-23T20:18:10.379Z",
+      "method": "First movie release or series premiere within the configured recent-release window, newest first, and verified currently available on this provider in India. Not newly added to the platform; not new series seasons.",
+      "providerId": 2336,
+      "candidateCount": 23,
+      "scanPages": 2,
+      "sample": [
+        {
+          "id": "tt46027225",
+          "tmdbId": 1771323,
+          "name": "Super Scam Me",
+          "providerId": 2336,
+          "watchRegion": "IN",
+          "checkedAt": "2026-10-23T20:18:10.379Z"
+        },
+        {
+          "id": "tt46062767",
+          "tmdbId": 1771844,
+          "name": "Kate Berlant: Parmesan",
+          "providerId": 2336,
+          "watchRegion": "IN",
+          "checkedAt": "2026-10-23T20:18:10.379Z"
+        },
+        {
+          "id": "tt46659729",
+          "tmdbId": 1776531,
+          "name": "Clown Panic",
+          "providerId": 2336,
+          "watchRegion": "IN",
+          "checkedAt": "2026-10-23T20:18:10.379Z"
+        }
+      ]
+    },
+    {
+      "id": "in.jh.trend",
+      "type": "movie",
+      "name": "JioHotstar Trending Movies (TMDB)",
+      "count": 3,
+      "verifiedAt": "2026-10-23T20:18:10.379Z",
+      "method": "Global TMDB weekly trending order intersected with verified availability on this provider in India. A bounded candidate sample, not an official platform chart.",
+      "providerId": 2336,
+      "sample": [
+        {
+          "id": "tt34385135",
+          "tmdbId": 1375646,
+          "name": "Colony",
+          "providerId": 2336,
+          "watchRegion": "IN",
+          "checkedAt": "2026-10-23T20:18:10.379Z"
+        },
+        {
+          "id": "tt27419466",
+          "tmdbId": 1108427,
+          "name": "Moana",
+          "providerId": 2336,
+          "watchRegion": "IN",
+          "checkedAt": "2026-10-23T20:18:10.379Z"
+        },
+        {
+          "id": "tt29355505",
+          "tmdbId": 1084244,
+          "name": "Toy Story 5",
+          "providerId": 2336,
+          "watchRegion": "IN",
+          "checkedAt": "2026-10-23T20:18:10.379Z"
+        }
+      ]
+    },
+    {
+      "id": "in.sl.pop",
+      "type": "movie",
+      "name": "SonyLIV Popular Movies (TMDB)",
+      "count": 40,
+      "verifiedAt": "2026-10-23T20:18:10.379Z",
+      "method": "TMDB popularity descending among titles with verified subscription/free/ad-supported availability on this provider in India. Not an official platform ranking.",
+      "providerId": 237,
+      "candidateCount": 40,
+      "scanPages": 2,
+      "sample": [
+        {
+          "id": "tt26657236",
+          "tmdbId": 1083381,
+          "name": "Backrooms",
+          "providerId": 237,
+          "watchRegion": "IN",
+          "checkedAt": "2026-10-23T20:18:10.379Z"
+        },
+        {
+          "id": "tt10872600",
+          "tmdbId": 634649,
+          "name": "Spider-Man: No Way Home",
+          "providerId": 237,
+          "watchRegion": "IN",
+          "checkedAt": "2026-10-23T20:18:10.379Z"
+        },
+        {
+          "id": "tt1856101",
+          "tmdbId": 335984,
+          "name": "Blade Runner 2049",
+          "providerId": 237,
+          "watchRegion": "IN",
+          "checkedAt": "2026-10-23T20:18:10.379Z"
+        }
+      ]
+    },
+    {
+      "id": "in.sl.trend",
+      "type": "movie",
+      "name": "SonyLIV Trending Movies (TMDB)",
+      "count": 1,
+      "verifiedAt": "2026-10-23T20:18:10.379Z",
+      "method": "Global TMDB weekly trending order intersected with verified availability on this provider in India. A bounded candidate sample, not an official platform chart.",
+      "providerId": 237,
+      "sample": [
+        {
+          "id": "tt26657236",
+          "tmdbId": 1083381,
+          "name": "Backrooms",
+          "providerId": 237,
+          "watchRegion": "IN",
+          "checkedAt": "2026-10-23T20:18:10.379Z"
+        }
+      ]
+    },
+    {
+      "id": "in.z5.pop",
+      "type": "movie",
+      "name": "ZEE5 Popular Movies (TMDB)",
+      "count": 1,
+      "verifiedAt": "2026-10-23T20:18:10.379Z",
+      "method": "TMDB popularity descending among titles with verified subscription/free/ad-supported availability on this provider in India. Not an official platform ranking.",
+      "providerId": 232,
+      "candidateCount": 160,
+      "scanPages": 8,
+      "sample": [
+        {
+          "id": "tt3606752",
+          "tmdbId": 260514,
+          "name": "Cars 3",
+          "providerId": 232,
+          "watchRegion": "IN",
+          "checkedAt": "2026-10-23T20:18:10.379Z"
+        }
+      ]
+    },
+    {
+      "id": "in.pv.pop",
+      "type": "movie",
+      "name": "Prime Video India Popular Movies (TMDB)",
+      "count": 40,
+      "verifiedAt": "2026-10-23T20:18:10.379Z",
+      "method": "TMDB popularity descending among titles with verified subscription/free/ad-supported availability on this provider in India. Not an official platform ranking.",
+      "providerId": 119,
+      "candidateCount": 40,
+      "scanPages": 2,
+      "sample": [
+        {
+          "id": "tt12042730",
+          "tmdbId": 687163,
+          "name": "Project Hail Mary",
+          "providerId": 119,
+          "watchRegion": "IN",
+          "checkedAt": "2026-10-23T20:18:10.379Z"
+        },
+        {
+          "id": "tt38672588",
+          "tmdbId": 1561726,
+          "name": "Masterplan",
+          "providerId": 119,
+          "watchRegion": "IN",
+          "checkedAt": "2026-10-23T20:18:10.379Z"
+        },
+        {
+          "id": "tt30887701",
+          "tmdbId": 1232569,
+          "name": "Pinocchio: Unstrung",
+          "providerId": 119,
+          "watchRegion": "IN",
+          "checkedAt": "2026-10-23T20:18:10.379Z"
+        }
+      ]
+    },
+    {
+      "id": "in.pv.new",
+      "type": "movie",
+      "name": "Prime Video India New Movies",
+      "count": 30,
+      "verifiedAt": "2026-10-23T20:18:10.379Z",
+      "method": "First movie release or series premiere within the configured recent-release window, newest first, and verified currently available on this provider in India. Not newly added to the platform; not new series seasons.",
+      "providerId": 119,
+      "candidateCount": 32,
+      "scanPages": 2,
+      "sample": [
+        {
+          "id": "tt38672588",
+          "tmdbId": 1561726,
+          "name": "Masterplan",
+          "providerId": 119,
+          "watchRegion": "IN",
+          "checkedAt": "2026-10-23T20:18:10.379Z"
+        },
+        {
+          "id": "tt34384900",
+          "tmdbId": 1381078,
+          "name": "Love of Your Life",
+          "providerId": 119,
+          "watchRegion": "IN",
+          "checkedAt": "2026-10-23T20:18:10.379Z"
+        },
+        {
+          "id": "tt43750202",
+          "tmdbId": 1437195,
+          "name": "Livestream from Hell",
+          "providerId": 119,
+          "watchRegion": "IN",
+          "checkedAt": "2026-10-23T20:18:10.379Z"
+        }
+      ]
+    },
+    {
+      "id": "in.pv.trend",
+      "type": "movie",
+      "name": "Prime Video India Trending Movies (TMDB)",
+      "count": 3,
+      "verifiedAt": "2026-10-23T20:18:10.379Z",
+      "method": "Global TMDB weekly trending order intersected with verified availability on this provider in India. A bounded candidate sample, not an official platform chart.",
+      "providerId": 119,
+      "sample": [
+        {
+          "id": "tt38672588",
+          "tmdbId": 1561726,
+          "name": "Masterplan",
+          "providerId": 119,
+          "watchRegion": "IN",
+          "checkedAt": "2026-10-23T20:18:10.379Z"
+        },
+        {
+          "id": "tt34385135",
+          "tmdbId": 1375646,
+          "name": "Colony",
+          "providerId": 119,
+          "watchRegion": "IN",
+          "checkedAt": "2026-10-23T20:18:10.379Z"
+        },
+        {
+          "id": "tt27681354",
+          "tmdbId": 1122573,
+          "name": "In the Grey",
+          "providerId": 119,
+          "watchRegion": "IN",
+          "checkedAt": "2026-10-23T20:18:10.379Z"
+        }
+      ]
+    },
+    {
+      "id": "in.sn.pop",
+      "type": "movie",
+      "name": "Sun NXT Popular Movies (TMDB)",
+      "count": 40,
+      "verifiedAt": "2026-10-23T20:18:10.379Z",
+      "method": "TMDB popularity descending among titles with verified subscription/free/ad-supported availability on this provider in India. Not an official platform ranking.",
+      "providerId": 309,
+      "candidateCount": 60,
+      "scanPages": 3,
+      "sample": [
+        {
+          "id": "tt11663228",
+          "tmdbId": 937020,
+          "name": "Jailer",
+          "providerId": 309,
+          "watchRegion": "IN",
+          "checkedAt": "2026-10-23T20:18:10.379Z"
+        },
+        {
+          "id": "tt37501035",
+          "tmdbId": 1479832,
+          "name": "DC",
+          "providerId": 309,
+          "watchRegion": "IN",
+          "checkedAt": "2026-10-23T20:18:10.379Z"
+        },
+        {
+          "id": "tt33509307",
+          "tmdbId": 1274311,
+          "name": "Oru Anweshanathinte Thudakkam",
+          "providerId": 309,
+          "watchRegion": "IN",
+          "checkedAt": "2026-10-23T20:18:10.379Z"
+        }
+      ]
+    },
+    {
+      "id": "in.sn.new",
+      "type": "movie",
+      "name": "Sun NXT New Movies",
+      "count": 2,
+      "verifiedAt": "2026-10-23T20:18:10.379Z",
+      "method": "First movie release or series premiere within the configured recent-release window, newest first, and verified currently available on this provider in India. Not newly added to the platform; not new series seasons.",
+      "providerId": 309,
+      "candidateCount": 2,
+      "scanPages": 2,
+      "sample": [
+        {
+          "id": "tt45382318",
+          "tmdbId": 1799441,
+          "name": "Kagitham Padavalu",
+          "providerId": 309,
+          "watchRegion": "IN",
+          "checkedAt": "2026-10-23T20:18:10.379Z"
+        },
+        {
+          "id": "tt37501035",
+          "tmdbId": 1479832,
+          "name": "DC",
+          "providerId": 309,
+          "watchRegion": "IN",
+          "checkedAt": "2026-10-23T20:18:10.379Z"
+        }
+      ]
+    },
+    {
+      "id": "in.hc.pop",
+      "type": "movie",
+      "name": "Hoichoi Popular Movies (TMDB)",
+      "count": 40,
+      "verifiedAt": "2026-10-23T20:18:10.379Z",
+      "method": "TMDB popularity descending among titles with verified subscription/free/ad-supported availability on this provider in India. Not an official platform ranking.",
+      "providerId": 315,
+      "candidateCount": 40,
+      "scanPages": 2,
+      "sample": [
+        {
+          "id": "tt3626180",
+          "tmdbId": 310972,
+          "name": "The Christmas Secret",
+          "providerId": 315,
+          "watchRegion": "IN",
+          "checkedAt": "2026-10-23T20:18:10.379Z"
+        },
+        {
+          "id": "tt5354160",
+          "tmdbId": 418325,
+          "name": "Mirror Game",
+          "providerId": 315,
+          "watchRegion": "IN",
+          "checkedAt": "2026-10-23T20:18:10.379Z"
+        },
+        {
+          "id": "tt0405266",
+          "tmdbId": 41252,
+          "name": "Raincoat",
+          "providerId": 315,
+          "watchRegion": "IN",
+          "checkedAt": "2026-10-23T20:18:10.379Z"
+        }
+      ]
+    },
+    {
+      "id": "in.lp.pop",
+      "type": "movie",
+      "name": "Lionsgate Play Popular Movies (TMDB)",
+      "count": 40,
+      "verifiedAt": "2026-10-23T20:18:10.379Z",
+      "method": "TMDB popularity descending among titles with verified subscription/free/ad-supported availability on this provider in India. Not an official platform ranking.",
+      "providerId": 561,
+      "candidateCount": 40,
+      "scanPages": 2,
+      "sample": [
+        {
+          "id": "tt12706836",
+          "tmdbId": 787747,
+          "name": "Shell",
+          "providerId": 561,
+          "watchRegion": "IN",
+          "checkedAt": "2026-10-23T20:18:10.379Z"
+        },
+        {
+          "id": "tt0145487",
+          "tmdbId": 557,
+          "name": "Spider-Man",
+          "providerId": 561,
+          "watchRegion": "IN",
+          "checkedAt": "2026-10-23T20:18:10.379Z"
+        },
+        {
+          "id": "tt15314262",
+          "tmdbId": 866398,
+          "name": "The Beekeeper",
+          "providerId": 561,
+          "watchRegion": "IN",
+          "checkedAt": "2026-10-23T20:18:10.379Z"
+        }
+      ]
+    },
+    {
+      "id": "in.jh.pop",
+      "type": "series",
+      "name": "JioHotstar Popular Series (TMDB)",
+      "count": 40,
+      "verifiedAt": "2026-10-23T20:18:10.379Z",
+      "method": "TMDB popularity descending among titles with verified subscription/free/ad-supported availability on this provider in India. Not an official platform ranking.",
+      "providerId": 2336,
+      "candidateCount": 40,
+      "scanPages": 2,
+      "sample": [
+        {
+          "id": "tt0413573",
+          "tmdbId": 1416,
+          "name": "Grey's Anatomy",
+          "providerId": 2336,
+          "watchRegion": "IN",
+          "checkedAt": "2026-10-23T20:18:10.379Z"
+        },
+        {
+          "id": "tt0098844",
+          "tmdbId": 549,
+          "name": "Law & Order",
+          "providerId": 2336,
+          "watchRegion": "IN",
+          "checkedAt": "2026-10-23T20:18:10.379Z"
+        },
+        {
+          "id": "tt14452776",
+          "tmdbId": 136315,
+          "name": "The Bear",
+          "providerId": 2336,
+          "watchRegion": "IN",
+          "checkedAt": "2026-10-23T20:18:10.379Z"
+        }
+      ]
+    },
+    {
+      "id": "in.jh.new",
+      "type": "series",
+      "name": "JioHotstar New Series",
+      "count": 40,
+      "verifiedAt": "2026-10-23T20:18:10.379Z",
+      "method": "First movie release or series premiere within the configured recent-release window, newest first, and verified currently available on this provider in India. Not newly added to the platform; not new series seasons.",
+      "providerId": 2336,
+      "candidateCount": 51,
+      "scanPages": 3,
+      "sample": [
+        {
+          "id": "tt48313964",
+          "tmdbId": 337800,
+          "name": "The Flores Massacre",
+          "providerId": 2336,
+          "watchRegion": "IN",
+          "checkedAt": "2026-10-23T20:18:10.379Z"
+        },
+        {
+          "id": "tt48356732",
+          "tmdbId": 337609,
+          "name": "Swipe Right on the Devil",
+          "providerId": 2336,
+          "watchRegion": "IN",
+          "checkedAt": "2026-10-23T20:18:10.379Z"
+        },
+        {
+          "id": "tt21952924",
+          "tmdbId": 275139,
+          "name": "Phony",
+          "providerId": 2336,
+          "watchRegion": "IN",
+          "checkedAt": "2026-10-23T20:18:10.379Z"
+        }
+      ]
+    },
+    {
+      "id": "in.jh.trend",
+      "type": "series",
+      "name": "JioHotstar Trending Series (TMDB)",
+      "count": 18,
+      "verifiedAt": "2026-10-23T20:18:10.379Z",
+      "method": "Global TMDB weekly trending order intersected with verified availability on this provider in India. A bounded candidate sample, not an official platform chart.",
+      "providerId": 2336,
+      "sample": [
+        {
+          "id": "tt23112594",
+          "tmdbId": 213375,
+          "name": "VisionQuest",
+          "providerId": 2336,
+          "watchRegion": "IN",
+          "checkedAt": "2026-10-23T20:18:10.379Z"
+        },
+        {
+          "id": "tt31510819",
+          "tmdbId": 247718,
+          "name": "MobLand",
+          "providerId": 2336,
+          "watchRegion": "IN",
+          "checkedAt": "2026-10-23T20:18:10.379Z"
+        },
+        {
+          "id": "tt16358384",
+          "tmdbId": 153312,
+          "name": "Tulsa King",
+          "providerId": 2336,
+          "watchRegion": "IN",
+          "checkedAt": "2026-10-23T20:18:10.379Z"
+        }
+      ]
+    },
+    {
+      "id": "in.sl.pop",
+      "type": "series",
+      "name": "SonyLIV Popular Series (TMDB)",
+      "count": 40,
+      "verifiedAt": "2026-10-23T20:18:10.379Z",
+      "method": "TMDB popularity descending among titles with verified subscription/free/ad-supported availability on this provider in India. Not an official platform ranking.",
+      "providerId": 237,
+      "candidateCount": 40,
+      "scanPages": 2,
+      "sample": [
+        {
+          "id": "tt0401916",
+          "tmdbId": 15226,
+          "name": "C.I.D.",
+          "providerId": 237,
+          "watchRegion": "IN",
+          "checkedAt": "2026-10-23T20:18:10.379Z"
+        },
+        {
+          "id": "tt0434665",
+          "tmdbId": 30984,
+          "name": "Bleach",
+          "providerId": 237,
+          "watchRegion": "IN",
+          "checkedAt": "2026-10-23T20:18:10.379Z"
+        },
+        {
+          "id": "tt0409591",
+          "tmdbId": 46260,
+          "name": "Naruto",
+          "providerId": 237,
+          "watchRegion": "IN",
+          "checkedAt": "2026-10-23T20:18:10.379Z"
+        }
+      ]
+    },
+    {
+      "id": "in.sl.new",
+      "type": "series",
+      "name": "SonyLIV New Series",
+      "count": 1,
+      "verifiedAt": "2026-10-23T20:18:10.379Z",
+      "method": "First movie release or series premiere within the configured recent-release window, newest first, and verified currently available on this provider in India. Not newly added to the platform; not new series seasons.",
+      "providerId": 237,
+      "candidateCount": 2,
+      "scanPages": 2,
+      "sample": [
+        {
+          "id": "tt46182660",
+          "tmdbId": 335787,
+          "name": "Family Full House with Rohit Sharma",
+          "providerId": 237,
+          "watchRegion": "IN",
+          "checkedAt": "2026-10-23T20:18:10.379Z"
+        }
+      ]
+    },
+    {
+      "id": "in.sl.trend",
+      "type": "series",
+      "name": "SonyLIV Trending Series (TMDB)",
+      "count": 6,
+      "verifiedAt": "2026-10-23T20:18:10.379Z",
+      "method": "Global TMDB weekly trending order intersected with verified availability on this provider in India. A bounded candidate sample, not an official platform chart.",
+      "providerId": 237,
+      "sample": [
+        {
+          "id": "tt26743760",
+          "tmdbId": 220542,
+          "name": "The Apothecary Diaries",
+          "providerId": 237,
+          "watchRegion": "IN",
+          "checkedAt": "2026-10-23T20:18:10.379Z"
+        },
+        {
+          "id": "tt0434665",
+          "tmdbId": 30984,
+          "name": "Bleach",
+          "providerId": 237,
+          "watchRegion": "IN",
+          "checkedAt": "2026-10-23T20:18:10.379Z"
+        },
+        {
+          "id": "tt0388629",
+          "tmdbId": 37854,
+          "name": "One Piece",
+          "providerId": 237,
+          "watchRegion": "IN",
+          "checkedAt": "2026-10-23T20:18:10.379Z"
+        }
+      ]
+    },
+    {
+      "id": "in.z5.pop",
+      "type": "series",
+      "name": "ZEE5 Popular Series (TMDB)",
+      "count": 40,
+      "verifiedAt": "2026-10-23T20:18:10.379Z",
+      "method": "TMDB popularity descending among titles with verified subscription/free/ad-supported availability on this provider in India. Not an official platform ranking.",
+      "providerId": 232,
+      "candidateCount": 60,
+      "scanPages": 3,
+      "sample": [
+        {
+          "id": "tt5154982",
+          "tmdbId": 65682,
+          "name": "Bhabiji Ghar Par Hain",
+          "providerId": 232,
+          "watchRegion": "IN",
+          "checkedAt": "2026-10-23T20:18:10.379Z"
+        },
+        {
+          "id": "tt37150304",
+          "tmdbId": 291369,
+          "name": "Saru",
+          "providerId": 232,
+          "watchRegion": "IN",
+          "checkedAt": "2026-10-23T20:18:10.379Z"
+        },
+        {
+          "id": "tt27502465",
+          "tmdbId": 212989,
+          "name": "LEGO Ninjago: Dragons Rising",
+          "providerId": 232,
+          "watchRegion": "IN",
+          "checkedAt": "2026-10-23T20:18:10.379Z"
+        }
+      ]
+    },
+    {
+      "id": "in.pv.pop",
+      "type": "series",
+      "name": "Prime Video India Popular Series (TMDB)",
+      "count": 40,
+      "verifiedAt": "2026-10-23T20:18:10.379Z",
+      "method": "TMDB popularity descending among titles with verified subscription/free/ad-supported availability on this provider in India. Not an official platform ranking.",
+      "providerId": 119,
+      "candidateCount": 40,
+      "scanPages": 2,
+      "sample": [
+        {
+          "id": "tt0203259",
+          "tmdbId": 2734,
+          "name": "Law & Order: Special Victims Unit",
+          "providerId": 119,
+          "watchRegion": "IN",
+          "checkedAt": "2026-10-23T20:18:10.379Z"
+        },
+        {
+          "id": "tt1196946",
+          "tmdbId": 5920,
+          "name": "The Mentalist",
+          "providerId": 119,
+          "watchRegion": "IN",
+          "checkedAt": "2026-10-23T20:18:10.379Z"
+        },
+        {
+          "id": "tt0364845",
+          "tmdbId": 4614,
+          "name": "NCIS",
+          "providerId": 119,
+          "watchRegion": "IN",
+          "checkedAt": "2026-10-23T20:18:10.379Z"
+        }
+      ]
+    },
+    {
+      "id": "in.pv.new",
+      "type": "series",
+      "name": "Prime Video India New Series",
+      "count": 25,
+      "verifiedAt": "2026-10-23T20:18:10.379Z",
+      "method": "First movie release or series premiere within the configured recent-release window, newest first, and verified currently available on this provider in India. Not newly added to the platform; not new series seasons.",
+      "providerId": 119,
+      "candidateCount": 27,
+      "scanPages": 2,
+      "sample": [
+        {
+          "id": "tt40856820",
+          "tmdbId": 338918,
+          "name": "Chaar Yaar",
+          "providerId": 119,
+          "watchRegion": "IN",
+          "checkedAt": "2026-10-23T20:18:10.379Z"
+        },
+        {
+          "id": "tt45246384",
+          "tmdbId": 303745,
+          "name": "Love in Disguise",
+          "providerId": 119,
+          "watchRegion": "IN",
+          "checkedAt": "2026-10-23T20:18:10.379Z"
+        },
+        {
+          "id": "tt43122927",
+          "tmdbId": 336973,
+          "name": "Hometown Giants",
+          "providerId": 119,
+          "watchRegion": "IN",
+          "checkedAt": "2026-10-23T20:18:10.379Z"
+        }
+      ]
+    },
+    {
+      "id": "in.pv.trend",
+      "type": "series",
+      "name": "Prime Video India Trending Series (TMDB)",
+      "count": 8,
+      "verifiedAt": "2026-10-23T20:18:10.379Z",
+      "method": "Global TMDB weekly trending order intersected with verified availability on this provider in India. A bounded candidate sample, not an official platform chart.",
+      "providerId": 119,
+      "sample": [
+        {
+          "id": "tt11743610",
+          "tmdbId": 120911,
+          "name": "The Terminal List",
+          "providerId": 119,
+          "watchRegion": "IN",
+          "checkedAt": "2026-10-23T20:18:10.379Z"
+        },
+        {
+          "id": "tt11540908",
+          "tmdbId": 288673,
+          "name": "Carrie",
+          "providerId": 119,
+          "watchRegion": "IN",
+          "checkedAt": "2026-10-23T20:18:10.379Z"
+        },
+        {
+          "id": "tt45246384",
+          "tmdbId": 303745,
+          "name": "Love in Disguise",
+          "providerId": 119,
+          "watchRegion": "IN",
+          "checkedAt": "2026-10-23T20:18:10.379Z"
+        }
+      ]
+    },
+    {
+      "id": "in.sn.pop",
+      "type": "series",
+      "name": "Sun NXT Popular Series (TMDB)",
+      "count": 28,
+      "verifiedAt": "2026-10-23T20:18:10.379Z",
+      "method": "TMDB popularity descending among titles with verified subscription/free/ad-supported availability on this provider in India. Not an official platform ranking.",
+      "providerId": 309,
+      "candidateCount": 51,
+      "scanPages": 3,
+      "sample": [
+        {
+          "id": "tt28595443",
+          "tmdbId": 218555,
+          "name": "Saathi",
+          "providerId": 309,
+          "watchRegion": "IN",
+          "checkedAt": "2026-10-23T20:18:10.379Z"
+        },
+        {
+          "id": "tt11981644",
+          "tmdbId": 126660,
+          "name": "Professor T",
+          "providerId": 309,
+          "watchRegion": "IN",
+          "checkedAt": "2026-10-23T20:18:10.379Z"
+        },
+        {
+          "id": "tt6916086",
+          "tmdbId": 73812,
+          "name": "Las Estrellas",
+          "providerId": 309,
+          "watchRegion": "IN",
+          "checkedAt": "2026-10-23T20:18:10.379Z"
+        }
+      ]
+    },
+    {
+      "id": "in.hc.pop",
+      "type": "series",
+      "name": "Hoichoi Popular Series (TMDB)",
+      "count": 40,
+      "verifiedAt": "2026-10-23T20:18:10.379Z",
+      "method": "TMDB popularity descending among titles with verified subscription/free/ad-supported availability on this provider in India. Not an official platform ranking.",
+      "providerId": 315,
+      "candidateCount": 40,
+      "scanPages": 2,
+      "sample": [
+        {
+          "id": "tt0247102",
+          "tmdbId": 2398,
+          "name": "Girlfriends",
+          "providerId": 315,
+          "watchRegion": "IN",
+          "checkedAt": "2026-10-23T20:18:10.379Z"
+        },
+        {
+          "id": "tt27476655",
+          "tmdbId": 215472,
+          "name": "RACE",
+          "providerId": 315,
+          "watchRegion": "IN",
+          "checkedAt": "2026-10-23T20:18:10.379Z"
+        },
+        {
+          "id": "tt15502918",
+          "tmdbId": 135152,
+          "name": "Indu",
+          "providerId": 315,
+          "watchRegion": "IN",
+          "checkedAt": "2026-10-23T20:18:10.379Z"
+        }
+      ]
+    },
+    {
+      "id": "in.hc.new",
+      "type": "series",
+      "name": "Hoichoi New Series",
+      "count": 1,
+      "verifiedAt": "2026-10-23T20:18:10.379Z",
+      "method": "First movie release or series premiere within the configured recent-release window, newest first, and verified currently available on this provider in India. Not newly added to the platform; not new series seasons.",
+      "providerId": 315,
+      "candidateCount": 1,
+      "scanPages": 2,
+      "sample": [
+        {
+          "id": "tt45944952",
+          "tmdbId": 337078,
+          "name": "Debipokkho",
+          "providerId": 315,
+          "watchRegion": "IN",
+          "checkedAt": "2026-10-23T20:18:10.379Z"
+        }
+      ]
+    },
+    {
+      "id": "in.lp.pop",
+      "type": "series",
+      "name": "Lionsgate Play Popular Series (TMDB)",
+      "count": 40,
+      "verifiedAt": "2026-10-23T20:18:10.379Z",
+      "method": "TMDB popularity descending among titles with verified subscription/free/ad-supported availability on this provider in India. Not an official platform ranking.",
+      "providerId": 561,
+      "candidateCount": 51,
+      "scanPages": 3,
+      "sample": [
+        {
+          "id": "tt1442449",
+          "tmdbId": 46296,
+          "name": "Spartacus",
+          "providerId": 561,
+          "watchRegion": "IN",
+          "checkedAt": "2026-10-23T20:18:10.379Z"
+        },
+        {
+          "id": "tt3526078",
+          "tmdbId": 61662,
+          "name": "Schitt's Creek",
+          "providerId": 561,
+          "watchRegion": "IN",
+          "checkedAt": "2026-10-23T20:18:10.379Z"
+        },
+        {
+          "id": "tt1475582",
+          "tmdbId": 19885,
+          "name": "Sherlock",
+          "providerId": 561,
+          "watchRegion": "IN",
+          "checkedAt": "2026-10-23T20:18:10.379Z"
+        }
+      ]
+    }
+  ],
+  "sourceRefreshCompletedAt": "2026-10-23T20:22:17.427Z",
+  "posterVerification": {
+    "checkedAt": "2026-10-23T20:25:17.466Z",
+    "method": "HTTP HEAD of every unique poster in the verified snapshot; no images downloaded",
+    "result": "pass",
+    "uniquePosters": 589,
+    "failures": []
+  },
+  "currentHttpTransport": {
+    "checkedAt": "2026-10-23T20:22:57.914Z",
+    "result": "pass",
+    "method": "Current source HTTP transport checked with authenticated live snapshot after restart; 100-item Stremio pagination",
+    "catalogs": 27,
+    "firstPageEntries": 669,
+    "readyStatus": 200,
+    "upstreamRequests": 0
+  },
+  "note": "Title availability assertions used the authenticated run's TMDB IN offer responses, not a separate direct-platform dataset. The full-poster and current 100-item HTTP checks were performed separately after the refresh."
+}

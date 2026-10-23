@@ -1,0 +1,172 @@
+TAP version 13
+# Subtest: exact live provider names resolve without hardcoded IDs or reseller channels
+ok 1 - exact live provider names resolve without hardcoded IDs or reseller channels
+  ---
+  duration_ms: 0.9777
+  type: 'test'
+  ...
+# Subtest: configuration rejects invalid provider names, insecure origins and invalid intervals
+ok 2 - configuration rejects invalid provider names, insecure origins and invalid intervals
+  ---
+  duration_ms: 1.0135
+  type: 'test'
+  ...
+# Subtest: India dates include a release after UTC midnight boundary correctly
+ok 3 - India dates include a release after UTC midnight boundary correctly
+  ---
+  duration_ms: 13.7138
+  type: 'test'
+  ...
+# Subtest: cache coalesces requests, expires, bounds entries and never caches failures
+ok 4 - cache coalesces requests, expires, bounds entries and never caches failures
+  ---
+  duration_ms: 0.6047
+  type: 'test'
+  ...
+# Subtest: fixture verification creates six typed named rows and a valid SDK interface
+ok 5 - fixture verification creates six typed named rows and a valid SDK interface
+  ---
+  duration_ms: 20.0372
+  type: 'test'
+  ...
+# Subtest: all sixty possible catalog declarations fit the official SDK manifest size limit
+ok 6 - all sixty possible catalog declarations fit the official SDK manifest size limit
+  ---
+  duration_ms: 0.5321
+  type: 'test'
+  ...
+# Subtest: India subscription/free/ads checks reject unrelated provider, US-only, reseller and rental-only titles
+ok 7 - India subscription/free/ads checks reject unrelated provider, US-only, reseller and rental-only titles
+  ---
+  duration_ms: 9.7931
+  type: 'test'
+  ...
+# Subtest: free and ads availability qualify while missing posters do not drop valid IDs
+ok 8 - free and ads availability qualify while missing posters do not drop valid IDs
+  ---
+  duration_ms: 9.1591
+  type: 'test'
+  ...
+# Subtest: adult, unreleased, missing IMDb or invalid IDs and duplicate candidates are excluded
+ok 9 - adult, unreleased, missing IMDb or invalid IDs and duplicate candidates are excluded
+  ---
+  duration_ms: 13.1589
+  type: 'test'
+  ...
+# Subtest: transient source failure preserves each good snapshot while other providers/types continue
+ok 10 - transient source failure preserves each good snapshot while other providers/types continue
+  ---
+  duration_ms: 15.3655
+  type: 'test'
+  ...
+# Subtest: successful empty response removes old rows rather than retaining fabricated availability
+ok 11 - successful empty response removes old rows rather than retaining fabricated availability
+  ---
+  duration_ms: 12.7911
+  type: 'test'
+  ...
+# Subtest: no exact India registry mapping removes old provider rows
+ok 12 - no exact India registry mapping removes old provider rows
+  ---
+  duration_ms: 8.7251
+  type: 'test'
+  ...
+# Subtest: 404 title removal is graceful, transient metadata errors retain snapshots
+ok 13 - 404 title removal is graceful, transient metadata errors retain snapshots
+  ---
+  duration_ms: 12.8777
+  type: 'test'
+  ...
+# Subtest: new releases use premiere date window, popular can contain old releases
+ok 14 - new releases use premiere date window, popular can contain old releases
+  ---
+  duration_ms: 8.7357
+  type: 'test'
+  ...
+# Subtest: snapshot pagination has no repeated slices or upstream requests and rejects malformed offsets
+ok 15 - snapshot pagination has no repeated slices or upstream requests and rejects malformed offsets
+  ---
+  duration_ms: 77.985
+  type: 'test'
+  ...
+# Subtest: snapshot persistence survives restart and rejects corrupt, incompatible or expired data
+ok 16 - snapshot persistence survives restart and rejects corrupt, incompatible or expired data
+  ---
+  duration_ms: 16.428
+  type: 'test'
+  ...
+# Subtest: expired rows leave manifest and handler and limit cache headers before expiry
+ok 17 - expired rows leave manifest and handler and limit cache headers before expiry
+  ---
+  duration_ms: 9.4119
+  type: 'test'
+  ...
+# Subtest: missing credentials yields no advertised rows and never contacts upstream
+ok 18 - missing credentials yields no advertised rows and never contacts upstream
+  ---
+  duration_ms: 1.661
+  type: 'test'
+  ...
+# Subtest: HTTP SDK routes have CORS, typed metadata, encoded pagination, no streams or secrets
+ok 19 - HTTP SDK routes have CORS, typed metadata, encoded pagination, no streams or secrets
+  ---
+  duration_ms: 115.0759
+  type: 'test'
+  ...
+# Subtest: TMDB uses bearer auth without query credentials, caches calls and requests India filters
+ok 20 - TMDB uses bearer auth without query credentials, caches calls and requests India filters
+  ---
+  duration_ms: 2.1256
+  type: 'test'
+  ...
+# Subtest: TMDB retries rate limits, respects Retry-After, and redacts authentication errors
+ok 21 - TMDB retries rate limits, respects Retry-After, and redacts authentication errors
+  ---
+  duration_ms: 1.186
+  type: 'test'
+  ...
+# Subtest: TMDB timeout failures are bounded; long Retry-After aborts this refresh and blocks subsequent calls
+ok 22 - TMDB timeout failures are bounded; long Retry-After aborts this refresh and blocks subsequent calls
+  ---
+  duration_ms: 0.6395
+  type: 'test'
+  ...
+# Subtest: identical ordered rows for a provider/type are suppressed
+ok 23 - identical ordered rows for a provider/type are suppressed
+  ---
+  duration_ms: 11.6499
+  type: 'test'
+  ...
+# Subtest: one provider discovery failure leaves a separately verified provider available
+ok 24 - one provider discovery failure leaves a separately verified provider available
+  ---
+  duration_ms: 12.193
+  type: 'test'
+  ...
+# Subtest: concurrent refresh requests share a single build
+ok 25 - concurrent refresh requests share a single build
+  ---
+  duration_ms: 9.1732
+  type: 'test'
+  ...
+# Subtest: long Retry-After rejects subsequent requests promptly without a multi-minute sleep
+ok 26 - long Retry-After rejects subsequent requests promptly without a multi-minute sleep
+  ---
+  duration_ms: 0.6637
+  type: 'test'
+  ...
+# Subtest: Discover scans further to refill rows after unrelated or rental-only candidates
+ok 27 - Discover scans further to refill rows after unrelated or rental-only candidates
+  ---
+  duration_ms: 27.9654
+  type: 'test'
+  ...
+1..27
+# tests 27
+# suites 0
+# pass 27
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 748.4107

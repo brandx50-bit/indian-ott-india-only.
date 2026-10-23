@@ -1,0 +1,7 @@
+{
+  "checkedAt": "2026-10-23T20:25:17.466Z",
+  "method": "HTTP HEAD of every unique poster in the verified snapshot; no images downloaded",
+  "result": "pass",
+  "uniquePosters": 589,
+  "failures": []
+}

@@ -1,0 +1,5 @@
+
+> personal-indian-ott-catalogs@1.0.0 check
+> node scripts/check.js
+
+All JavaScript files passed syntax checks.

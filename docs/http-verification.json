@@ -1,0 +1,9 @@
+{
+  "checkedAt": "2026-10-23T20:22:57.914Z",
+  "result": "pass",
+  "method": "Current source HTTP transport checked with authenticated live snapshot after restart; 100-item Stremio pagination",
+  "catalogs": 27,
+  "firstPageEntries": 669,
+  "readyStatus": 200,
+  "upstreamRequests": 0
+}

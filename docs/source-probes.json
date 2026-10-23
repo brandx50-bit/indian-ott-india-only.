@@ -1,0 +1,119 @@
+{
+  "checkedAt": "2026-10-23T19:59:15.172Z",
+  "method": "Plain public GET, no credentials or geo overrides; homepage access alone is not a verified catalog.",
+  "results": [
+    {
+      "provider": "jiohotstar",
+      "url": "https://www.jiohotstar.com/in/home",
+      "status": 200,
+      "finalUrl": "https://www.hotstar.com/in/home",
+      "bytes": 174176,
+      "nextData": false,
+      "hasRails": false
+    },
+    {
+      "provider": "sonyliv",
+      "url": "https://www.sonyliv.com/",
+      "status": 200,
+      "finalUrl": "https://www.sonyliv.com/",
+      "bytes": 1556991,
+      "title": "SonyLIV - Watch  TV Shows, Movies, Sports, Live Cricket Matches, Web Originals.",
+      "nextData": false,
+      "hasRails": false
+    },
+    {
+      "provider": "zee5",
+      "url": "https://www.zee5.com/movies",
+      "status": 200,
+      "finalUrl": "https://www.zee5.com/premium/movies",
+      "bytes": 1695650,
+      "title": "Watch Movies Online in 4K - Latest &amp; Hit Films | Zee 5",
+      "nextData": true,
+      "country": "LK",
+      "hasRails": true
+    },
+    {
+      "provider": "primevideo",
+      "url": "https://www.primevideo.com/",
+      "status": 200,
+      "finalUrl": "https://www.primevideo.com/region/eu/",
+      "bytes": 1358741,
+      "title": "Prime Video: Watch movies, TV shows, sports, and live TV",
+      "nextData": false,
+      "hasRails": false
+    },
+    {
+      "provider": "sunnxt",
+      "url": "https://www.sunnxt.com/",
+      "status": 200,
+      "finalUrl": "https://www.sunnxt.com/",
+      "bytes": 890999,
+      "title": "Watch Tamil, Telugu, Malayalam, Kannada, Hindi &amp; English Movies, TV Shows &amp; More on SunNXT",
+      "nextData": true,
+      "hasRails": false
+    },
+    {
+      "provider": "hoichoi",
+      "url": "https://www.hoichoi.tv/",
+      "status": 403,
+      "finalUrl": "https://hoichoi.tv/",
+      "bytes": 5497,
+      "title": "Just a moment...",
+      "nextData": false,
+      "hasRails": false
+    },
+    {
+      "provider": "erosnow",
+      "url": "https://erosnow.com/",
+      "status": 200,
+      "finalUrl": "https://erosnow.com/",
+      "bytes": 108915,
+      "title": "Eros Now - Watch over 11,000+ HD Movies, TV Shows &amp; Originals Online | Eros Now",
+      "nextData": false,
+      "hasRails": false
+    },
+    {
+      "provider": "airtelxstream",
+      "url": "https://www.airtelxstream.in/",
+      "status": 200,
+      "finalUrl": "https://www.airtelxstream.in/",
+      "bytes": 1507819,
+      "title": "Airtel Xstream Play - Watch Movies, TV Shows, Web Series &amp; Live Sports Online from 25+ OTT Platforms",
+      "nextData": false,
+      "hasRails": false
+    },
+    {
+      "provider": "lionsgateplay",
+      "url": "https://www.lionsgateplay.com/",
+      "status": 200,
+      "finalUrl": "https://lionsgateplay.com/",
+      "bytes": 5719,
+      "title": "Watch Hollywood Movies, TV Shows & Web Series Online on Lionsgate Play",
+      "nextData": false,
+      "hasRails": false
+    },
+    {
+      "provider": "tmdb-no-auth",
+      "url": "https://api.themoviedb.org/3/watch/providers/movie?watch_region=IN",
+      "status": 401,
+      "finalUrl": "https://api.themoviedb.org/3/watch/providers/movie?watch_region=IN",
+      "bytes": 103,
+      "nextData": false,
+      "hasRails": false
+    },
+    {
+      "provider": "upstream-license",
+      "url": "https://raw.githubusercontent.com/pratiks360/Indian-stremio-catalogs/main/LICENSE",
+      "status": 404,
+      "finalUrl": "https://raw.githubusercontent.com/pratiks360/Indian-stremio-catalogs/main/LICENSE",
+      "bytes": 14,
+      "nextData": false,
+      "hasRails": false
+    },
+    {
+      "provider": "netflix-tudum",
+      "url": "https://www.netflix.com/tudum/top10/data/all-weeks-countries.tsv",
+      "error": "TimeoutError"
+    }
+  ]
+}
