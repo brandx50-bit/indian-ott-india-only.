@@ -9,6 +9,13 @@ const METHODS = {
  trending:'Global TMDB weekly trending order intersected with verified availability on this provider in India. A bounded candidate sample, not an official platform chart.',
  new:'First movie release or series premiere within the configured recent-release window, newest first, and verified currently available on this provider in India. Not newly added to the platform; not new series seasons.'
 };
+// Indian-language or Indian-origin titles only (used when config.indianOnly is on).
+const isIndian = (o,langs) => !!o && (langs.includes(o.original_language) || (Array.isArray(o.origin_country) && o.origin_country.includes('IN')));
+const INDIAN_METHODS = {
+ popular:'TMDB popularity descending among Indian-language/Indian-origin titles with verified subscription/free/ad-supported availability on this provider in India. Not an official platform ranking.',
+ trending:'Most popular (TMDB) Indian-language/Indian-origin titles released in the last 12 months with verified availability on this provider in India. Not an official platform chart.',
+ new:'Indian-language/Indian-origin first movie release or series premiere within the configured recent-release window, newest first, verified currently available on this provider in India. Not newly added to the platform; not new series seasons.'
+};
 const imdb = s => typeof s === 'string' && /^tt\d{7,12}$/.test(s);
 const image = p => typeof p === 'string' && /^\/[a-zA-Z0-9._-]+$/.test(p) ? `https://image.tmdb.org/t/p/w500${p}` : undefined;
 const indiaDate = at => new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Kolkata',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date(at));
@@ -16,12 +23,12 @@ const rowId = (slug,kind) => `in.${CODES[slug]}.${kind==='trending'?'trend':kind
 function catalog(provider,type,kind) {
  return {type:type==='tv'?'series':'movie',id:rowId(provider.slug,kind),name:`${provider.name} ${kind==='new'?'New':kind==='popular'?'Popular':'Trending'} ${type==='tv'?'Series':'Movies'}${kind==='new'?'':' (TMDB)'}`,extra:[{name:'skip'}]};
 }
-function toMeta(detail,type,provider,kind) {
+function toMeta(detail,type,provider,kind,methods=METHODS) {
  const id=detail.external_ids?.imdb_id || detail.imdb_id;
  const name=type==='movie'?detail.title:detail.name;
  if(!imdb(id) || typeof name!=='string' || !name.trim()) return null;
  const date=type==='movie'?detail.release_date:detail.first_air_date;
- const meta={id,type:type==='tv'?'series':'movie',name:name.trim(),posterShape:'poster',description:`${METHODS[kind]}\nAvailability: JustWatch via TMDB (India).\n\n${detail.overview || ''}`};
+ const meta={id,type:type==='tv'?'series':'movie',name:name.trim(),posterShape:'poster',description:`${methods[kind]}\nAvailability: JustWatch via TMDB (India).\n\n${detail.overview || ''}`};
  const poster=image(detail.poster_path); if(poster) meta.poster=poster;
  if(/^\d{4}-\d{2}-\d{2}$/.test(date || '')) {meta.releaseInfo=date.slice(0,4);meta.released=new Date(`${date}T00:00:00Z`).toISOString();}
  if(Array.isArray(detail.genres)) meta.genres=detail.genres.map(g=>g.name).filter(n=>typeof n==='string');
@@ -40,6 +47,7 @@ class Engine {
   this.config=config;this.tmdb=tmdb;this.now=now;this.log=log;
   this.rows=new Map();this.status=new Map();this.refreshing=null;this.lastRefresh=null;
  }
+ methods() {return this.config.indianOnly?INDIAN_METHODS:METHODS;}
  key(type,id) {return `${type}:${id}`;}
  activeRows() {
   const seen=new Set();
@@ -61,8 +69,8 @@ class Engine {
   const rows=this.activeRows();
   return {region:'IN',source:'TMDB; availability data by JustWatch',configured:!!(this.config.key||this.config.token),refreshing:!!this.refreshing,lastRefresh:this.lastRefresh,
    providers:PROVIDERS.filter(p=>this.config.providers.includes(p.slug)).map(p=>({slug:p.slug,name:p.name,types:['movie','tv'].map(type=>({type,...(this.status.get(`${p.slug}:${type}`)||{status:'unverified',reason:'Awaiting authenticated live verification'})}))})),
-   rows:rows.map(r=>({id:r.catalog.id,type:r.catalog.type,name:r.catalog.name,count:r.metas.length,verifiedAt:new Date(r.verifiedAt).toISOString(),stale:this.now()-r.verifiedAt>=this.config.refreshMs,method:METHODS[r.kind],candidateCount:r.candidateCount,scanPages:r.scanPages,providerId:r.providerId,sample:r.evidence.slice(0,3)})),
-   api:this.tmdb.stats,limitations:['TMDB/JustWatch coverage may be incomplete or delayed.','Availability includes subscription, free, and ads; excludes rent/buy and separately named reseller channels.','Rows appear only after a nonempty live verification; snapshots expire after STALE_HOURS.','No verified originals/collections or official platform charts in this version.','No original-language restriction: all titles verified on the Indian service qualify.','Rows with identical ordered title lists for the same provider and content type are suppressed.']};
+   rows:rows.map(r=>({id:r.catalog.id,type:r.catalog.type,name:r.catalog.name,count:r.metas.length,verifiedAt:new Date(r.verifiedAt).toISOString(),stale:this.now()-r.verifiedAt>=this.config.refreshMs,method:this.methods()[r.kind],candidateCount:r.candidateCount,scanPages:r.scanPages,providerId:r.providerId,sample:r.evidence.slice(0,3)})),
+   api:this.tmdb.stats,limitations:['TMDB/JustWatch coverage may be incomplete or delayed.','Availability includes subscription, free, and ads; excludes rent/buy and separately named reseller channels.','Rows appear only after a nonempty live verification; snapshots expire after STALE_HOURS.','No verified originals/collections or official platform charts in this version.',(this.config.indianOnly?'Indian-language or Indian-origin titles only (hi, ta, te, ml, kn, bn, mr, pa, gu, or, as and Indian-origin series); coverage is limited by what TMDB/JustWatch lists for each Indian service.':'No original-language restriction: all titles verified on the Indian service qualify.'),'Rows with identical ordered title lists for the same provider and content type are suppressed.']};
  }
  async hydrate(candidates,provider,type,kind,providerId,at) {
   const seen=new Set();const unique=[];
@@ -74,12 +82,13 @@ class Engine {
   const metas=[];const evidence=[];const emitted=new Set();
   for(const d of details) {
    if(!d || d.adult===true) continue;
+   if(this.config.indianOnly && !isIndian(d,this.config.indianLanguages)) continue;
    const date=type==='movie'?d.release_date:d.first_air_date;
    if(!/^\d{4}-\d{2}-\d{2}$/.test(date||'') || !Number.isFinite(Date.parse(date)) || date>indiaDate(at)) continue;
    if(kind==='new' && date<indiaDate(at-this.config.newDays*86400000)) continue;
    const india=d['watch/providers']?.results?.IN;
    if(!india || !['flatrate','free','ads'].some(mode=>Array.isArray(india[mode]) && india[mode].some(p=>p.provider_id===providerId))) continue;
-   const meta=toMeta(d,type,provider,kind);
+   const meta=toMeta(d,type,provider,kind,this.methods());
    if(!meta || emitted.has(meta.id)) continue;
    emitted.add(meta.id);metas.push(meta);
    evidence.push({id:meta.id,tmdbId:d.id,name:meta.name,providerId,watchRegion:'IN',checkedAt:new Date(at).toISOString()});
@@ -116,7 +125,12 @@ class Engine {
      const id=rowId(provider.slug,kind);const key=this.key(type==='tv'?'series':'movie',id);
      try {
       let candidates;
-      if(kind==='trending') {
+      if(this.config.indianOnly) {
+       // Ask TMDB for Indian titles directly, then keep only Indian-language/origin candidates
+       // (cheap check on the discover payload) before the per-title availability lookups.
+       candidates=await this.tmdb.discoverIndian(type,resolved.id,kind,Math.min(this.config.scanPages,Math.ceil(this.config.rowLimit/20)+1),new Date(at),this.config.newDays,this.config.indianLanguages,this.config.trendingWindowDays);
+       candidates=candidates.filter(c=>isIndian(c,this.config.indianLanguages)).slice(0,Math.ceil(this.config.rowLimit*1.5));
+      } else if(kind==='trending') {
        if(!runTrending.has(type)) runTrending.set(type,this.tmdb.trending(type,this.config.trendingPages));
        candidates=await runTrending.get(type);
       } else candidates=await this.tmdb.discover(type,resolved.id,kind,Math.ceil(this.config.rowLimit/20),new Date(at),this.config.newDays);
@@ -124,7 +138,7 @@ class Engine {
       // Discover's provider and monetization predicates can select rental offers on
       // this provider plus subscriptions elsewhere. Verify each title and scan
       // further, with an explicit bound, to refill genuine direct-provider results.
-      if(kind!=='trending') {
+      if(kind!=='trending' && !this.config.indianOnly) {
        let pages=Math.ceil(this.config.rowLimit/20);
        while(row.metas.length<this.config.rowLimit && candidates.length===pages*20 && pages<this.config.scanPages) {
         candidates=await this.tmdb.discover(type,resolved.id,kind,++pages,new Date(at),this.config.newDays);
@@ -177,4 +191,4 @@ class Engine {
   }catch {return false;}
  }
 }
-module.exports={Engine,METHODS,catalog,rowId,toMeta,mapLimit,indiaDate};
+module.exports={Engine,METHODS,INDIAN_METHODS,isIndian,catalog,rowId,toMeta,mapLimit,indiaDate};

@@ -79,6 +79,31 @@ class Tmdb {
     }
     return results;
   }
+  // Indian-only discovery. One query per variant (Indian origin country, then each Indian original
+  // language), merged and de-duplicated. TMDB cannot OR several languages in one request, and a global
+  // popularity list is dominated by Hollywood titles, so Indian titles must be asked for directly.
+  // kind: 'popular' | 'new' | 'trending' (trending = most popular releases of the last windowDays).
+  async discoverIndian(type, providerId, kind, pages, now, newDays, languages, windowDays) {
+    const date=type==='movie'?'primary_release_date':'first_air_date';
+    const base={watch_region:'IN',with_watch_providers:String(providerId),with_watch_monetization_types:'flatrate|free|ads',include_adult:'false',language:'en-US',sort_by:kind==='new'?`${date}.desc`:'popularity.desc',[`${date}.lte`]:indiaDate(now)};
+    if(kind==='new') base[`${date}.gte`]=indiaDate(now.getTime()-newDays*86400000);
+    if(kind==='trending') base[`${date}.gte`]=indiaDate(now.getTime()-windowDays*86400000);
+    const variants=[{params:{with_origin_country:'IN'},pages},...languages.map(l=>({params:{with_original_language:l},pages:1}))];
+    const merged=new Map();
+    for(const v of variants) {
+      for(let page=1;page<=v.pages;page++) {
+        const r=await this.get(`/discover/${type}`,{...base,...v.params,page});
+        if(!Array.isArray(r.results)) throw new SourceError('invalid-results',`/discover/${type}`);
+        for(const item of r.results) if(item && Number.isSafeInteger(item.id) && !merged.has(item.id)) merged.set(item.id,item);
+        if(page>=r.total_pages) break;
+      }
+    }
+    const list=[...merged.values()];
+    const num=x=>Number.isFinite(x)?x:0;
+    if(kind==='new') list.sort((a,b)=>String(b[date]||'').localeCompare(String(a[date]||''))||num(b.popularity)-num(a.popularity));
+    else list.sort((a,b)=>num(b.popularity)-num(a.popularity));
+    return list;
+  }
   async title(type,id) {
     // One cached request supplies exact IDs, full metadata, and country-specific availability.
     const r=await this.get(`/${type}/${id}`,{append_to_response:'external_ids,watch/providers',language:'en-US'});

@@ -8,7 +8,7 @@ const quiet={warn(){}};const at=Date.parse('2026-10-24T07:00:00Z');
 async function setup(t,overrides={}) {
  const parent=path.join(__dirname,'..','.cache','test');await fs.mkdir(parent,{recursive:true});
  const dir=await fs.mkdtemp(path.join(parent,'iott-'));t.after(()=>fs.rm(dir,{recursive:true,force:true}));
- const c={...config({CACHE_DIR:dir,PROVIDERS:'sonyliv',TMDB_API_KEY:'fixture-only'}),...overrides};
+ const c={...config({CACHE_DIR:dir,PROVIDERS:'sonyliv',TMDB_API_KEY:'fixture-only',INDIAN_ONLY:'false'}),...overrides};
  const calls=[];
  const title=(type,id)=>({id,title:`Fixture movie ${id}`,name:`Fixture series ${id}`,release_date:'2026-10-01',first_air_date:'2026-10-02',poster_path:'/fixture.jpg',external_ids:{imdb_id:`tt${String(id).padStart(7,'0')}`},'watch/providers':{results:{IN:{flatrate:[{provider_id:97531}]}}}});
  const source={stats:{requests:0},async registry(type){calls.push(['registry',type]);return {results:[{provider_name:'Sony Liv',provider_id:97531}]};},async trending(type){calls.push(['trend',type]);return [{id:2},{id:1}];},async discover(type,id,kind){calls.push(['discover',type,id,kind]);return kind==='new'?[{id:3}]:[{id:1},{id:2}];},async title(type,id){calls.push(['title',type,id]);return title(type,id);}};
@@ -160,4 +160,50 @@ test('Discover scans further to refill rows after unrelated or rental-only candi
  source.discover=async(type,id,kind,pages)=>Array.from({length:pages*20},(_,i)=>({id:i+1}));
  source.title=async(type,id)=>{const d=title(type,id);if(id<=20)d['watch/providers'].results.IN={rent:[{provider_id:97531}]};return d;};
  await engine.refresh();const row=engine.activeRows().find(r=>r.catalog.id==='in.sl.pop' && r.catalog.type==='movie');assert.equal(row.metas.length,20);assert.equal(row.scanPages,2);assert.equal(row.candidateCount,40);
+});
+
+test('Indian-only mode is the default and can be switched off or rejected when invalid',()=>{
+ assert.equal(config({}).indianOnly,true);assert.equal(config({INDIAN_ONLY:'false'}).indianOnly,false);
+ assert.ok(config({}).indianLanguages.includes('ta'));
+ assert.throws(()=>config({INDIAN_ONLY:'maybe'}));assert.throws(()=>config({INDIAN_LANGUAGES:'hindi'}));
+ assert.notEqual(config({}).signature,config({INDIAN_ONLY:'false'}).signature);
+});
+test('Indian-only rows keep Indian-language/origin titles and drop English ones, in discover and in the detail check',async t=>{
+ const {engine,source,title,c}=await setup(t,{indianOnly:true,indianLanguages:['hi','ta']});
+ const items=[{id:1,original_language:'en'},{id:2,original_language:'hi'},{id:3,original_language:'ta'},{id:4,original_language:'en',origin_country:['IN']},{id:5,original_language:'hi'}];
+ source.discoverIndian=async()=>items;
+ source.title=async(type,id)=>{const d=title(type,id);d.original_language=({1:'en',2:'hi',3:'ta',4:'en',5:'en'})[id];if(id===4)d.origin_country=['IN'];return d;};
+ await engine.refresh();
+ const ids=engine.response({type:'movie',id:rowId('sonyliv','popular')}).metas.map(m=>m.id);
+ // 1: English (dropped), 5: discover says hi but the title detail says English (dropped by the detail check)
+ assert.deepEqual(ids,['tt0000002','tt0000003','tt0000004']);
+ assert.match(engine.response({type:'movie',id:rowId('sonyliv','popular')}).metas[0].description,/Indian-language/);
+ assert.match(engine.report().limitations.join(' '),/Indian-language or Indian-origin/);
+});
+test('Indian-only trending row comes from recent popular Indian titles, not the global trending list',async t=>{
+ const {engine,source,calls}=await setup(t,{indianOnly:true,indianLanguages:['hi']});
+ source.trending=async()=>{throw new Error('global trending must not be used in Indian-only mode');};
+ source.discoverIndian=async(type,id,kind,pages,now,newDays,langs,windowDays)=>{calls.push(['indian',type,kind,windowDays]);return [{id:kind==='trending'?7:kind==='new'?8:9,original_language:'hi'}];};
+ source.title=async(type,id)=>({id,title:'T',name:'T',release_date:'2026-09-01',first_air_date:'2026-09-01',original_language:'hi',external_ids:{imdb_id:`tt${String(id).padStart(7,'0')}`},'watch/providers':{results:{IN:{flatrate:[{provider_id:97531}]}}}});
+ await engine.refresh();
+ assert.ok(calls.some(x=>x[0]==='indian' && x[2]==='trending' && x[3]===365));
+ assert.equal(engine.response({type:'movie',id:rowId('sonyliv','trending')}).metas.length,1);
+});
+test('discoverIndian queries Indian origin country and every Indian language, merges and sorts without duplicates',async t=>{
+ const urls=[];
+ const pages={IN:[{id:1,popularity:5,original_language:'en'},{id:2,popularity:50,original_language:'hi'}],ta:[{id:2,popularity:50,original_language:'hi'},{id:3,popularity:70,original_language:'ta'}],hi:[{id:4,popularity:1,original_language:'hi'}]};
+ const fetchImpl=async url=>{
+  urls.push(url);const p=url.searchParams;
+  const key=p.get('with_origin_country')?'IN':p.get('with_original_language');
+  return {ok:true,json:async()=>({results:pages[key]||[],total_pages:1})};
+ };
+ const tmdb=new Tmdb({key:'fixture-only',intervalMs:100,timeoutMs:1000,apiCacheMs:1000},{fetchImpl,sleep:async()=>{},now:()=>at});
+ const list=await tmdb.discoverIndian('movie',97531,'popular',2,new Date(at),90,['hi','ta'],365);
+ assert.deepEqual(list.map(x=>x.id),[3,2,1,4]);
+ assert.equal(urls.length,3);
+ assert.ok(urls.some(u=>u.searchParams.get('with_origin_country')==='IN'));
+ assert.deepEqual(urls.map(u=>u.searchParams.get('with_original_language')).filter(Boolean).sort(),['hi','ta']);
+ for(const u of urls){assert.equal(u.searchParams.get('watch_region'),'IN');assert.equal(u.searchParams.get('with_watch_providers'),'97531');assert.equal(u.searchParams.get('sort_by'),'popularity.desc');}
+ const fresh=await tmdb.discoverIndian('tv',97531,'new',1,new Date(at),30,['hi'],365);
+ assert.ok(Array.isArray(fresh));
 });
