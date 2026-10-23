@@ -1,0 +1,27 @@
+services:
+  - type: web
+    name: indian-ott-catalogs
+    runtime: node
+    plan: free
+    region: singapore
+    buildCommand: npm ci --ignore-scripts && npm run check && npm test
+    startCommand: npm start
+    healthCheckPath: /health
+    autoDeployTrigger: checksPass
+    envVars:
+      - key: NODE_VERSION
+        value: 24.19.0
+      - key: NODE_ENV
+        value: production
+      - key: HOST
+        value: 0.0.0.0
+      - key: TMDB_READ_ACCESS_TOKEN
+        sync: false
+      - key: PUBLIC_BASE_URL
+        value: ''
+      - key: REFRESH_HOURS
+        value: '12'
+      - key: STALE_HOURS
+        value: '48'
+      - key: CACHE_DIR
+        value: .cache
